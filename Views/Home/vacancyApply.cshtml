@@ -1,0 +1,105 @@
+﻿@model Recruitment.Models.CandidateCvModel
+@{
+    ViewData["Title"] = "vacancyApply";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- ==========---Breadcrumbs---=========== -->
+<section class="breadcrumbs">
+    <div class="container">
+        <h2>Apply Vaccancy</h2>
+    </div>
+</section><!-- End Breadcrumbs -->
+<!-- ======= Blog Section ======= -->
+<section id="blog" class="blog">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 entries">
+                <article class="Card">
+                    <div class="row form-group">
+                        <div class="col-sm-6">
+                            <label class="control-label" style="font-weight: bold;">Job Category</label>
+                            @Html.DropDownListFor(model => model.CategoryId, new SelectList(ViewBag.Categories, "Id", "Name"), "All",
+                            new { @class = "form-control", @id = "ddl_Category" })
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="control-label" style="font-weight: bold;">Job Title</label>
+                            @Html.DropDownListFor(model => model.JobTitleId, new SelectList(ViewBag.JobTitle, "Id", "Title"), "All",
+                            new { @class = "form-control", @id = "ddl_JobTitle" })
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-sm-6">
+                            <label class="control-label" style="font-weight: bold;">Full Name</label>
+                            @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Full Name", @id = "FullNameId" } })
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="control-label" style="font-weight: bold;">Mobile</label>
+                            @Html.EditorFor(model => model.Mobile, new { htmlAttributes = new { @class = "form-control", @placeholder = "Mobile", @id = "Mobile" } })
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-sm-6">
+                            <label class="control-label" style="font-weight: bold;">Email</label>
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Email", @id = "Email" } })
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="control-label" style="font-weight: bold;">Gender</label>
+                            @Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control", @placeholder = "Gender", @id = "Gender" } })
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-sm-6">
+                            <label class="control-label" style="font-weight: bold;">Country</label>
+                            @Html.DropDownListFor(model => model.CountryId, new SelectList(ViewBag.Countries, "Id", "Name"), "All",
+                            new { @class = "form-control", @id = "ddl_YearsOfExperience" })
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="control-label" style="font-weight: bold;">Current Company</label>
+                            @Html.EditorFor(model => model.CurrentCompany, new { htmlAttributes = new { @class = "form-control", @placeholder = "Keywords", @id = "DescriptionIp" } })
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-sm-6">
+                            <label class="control-label" style="font-weight: bold;">Experience</label>
+                            @Html.DropDownListFor(model => model.ExperienceId, new SelectList(ViewBag.Experiences, "Id", "YearsOfExperience"), "All",
+                             new { @class = "form-control", @id = "ddl_YearsOfExperience" })
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="control-label" style="font-weight: bold;">Current Salary</label>
+                            @Html.EditorFor(model => model.CurrentSalaryRangeId, new { htmlAttributes = new { @class = "form-control", @placeholder = "Keywords", @id = "DescriptionIp" } })
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-sm-6">
+                            <label class="control-label" style="font-weight: bold;">Country Of Nationality </label>
+                            @Html.DropDownListFor(model => model.CountryOfNationalityId, new SelectList(ViewBag.Experiences, "Id", "YearsOfExperience"), "All",
+                                new { @class = "form-control", @id = "ddl_YearsOfExperience" })
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="control-label" style="font-weight: bold;">Nationality</label>
+                            @Html.EditorFor(model => model.NationalId4digits, new { htmlAttributes = new { @class = "form-control", @placeholder = "Keywords", @id = "DescriptionIp" } })
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-sm-6">
+                            <label class="control-label" style="font-weight: bold;">Birthdate</label>
+                            @Html.EditorFor(model => model.Birthdate, new { htmlAttributes = new { @class = "form-control", @placeholder = "Birthdate", @id = "Birthdate" } })
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="control-label" style="font-weight: bold;">CV</label>
+                            @Html.EditorFor(model => model.Cv, new { htmlAttributes = new { @class = "form-control", @placeholder = "CV", @id = "CvID" } })
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-lg-12 text-center">
+                            <input type="submit" value=Submit  id="BtnSubmit" class="BtnSearch" />
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+@section scripts{
+    <script src="~/js/Vacancies.js"></script>
+}

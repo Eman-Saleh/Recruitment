@@ -1,0 +1,93 @@
+﻿@model Recruitment.Models.VacancySearchViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+<link rel="stylesheet" type="text/css" href="~/lib/DataTable/jquery.dataTables.min.css">
+<!-- ======= Breadcrumbs ======= -->
+<section class="breadcrumbs">
+    <div class="container">
+        <h2>Recent Job Vaccancies</h2>
+    </div>
+</section><!-- End Breadcrumbs -->
+<!-- ======= Blog Section ======= -->
+@*@using (Html.BeginForm())
+    {*@
+<section id="blog" class="blog">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 entries">
+                <article class="Card">
+                    <div class="row form-group">
+                        <div class="col-sm-6">
+                            <label class="control-label" style="font-weight: bold;">Job Category</label>
+                            @Html.DropDownListFor(model => model.CategoryID, new SelectList(ViewBag.Categories, "Id", "Name"), "All",
+new { @class = "form-control", @id = "ddl_Category" })
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="control-label" style="font-weight: bold;">Job Title</label>
+                            @Html.DropDownListFor(model => model.JobTitleID, new SelectList(ViewBag.JobTitle, "Id", "Title"), "All",
+new { @class = "form-control", @id = "ddl_JobTitle" })
+
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-sm-6">
+                            <label class="control-label" style="font-weight: bold;">Country</label>
+                            @Html.DropDownListFor(model => model.CountryID, new SelectList(ViewBag.Countries, "Id", "Name"), "All",
+new { @class = "form-control", @id = "ddl_Country" })
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="control-label" style="font-weight: bold;">Salary</label>
+                            @Html.DropDownListFor(model => model.SalaryID, new SelectList(ViewBag.Salaries, "Id", "Range"), "All",
+new { @class = "form-control", @id = "ddl_Salary" })
+
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-sm-6">
+                            <label class="control-label" style="font-weight: bold;">Experience</label>
+                            @Html.DropDownListFor(model => model.YearsOfExperienceID, new SelectList(ViewBag.Experiences, "Id", "YearsOfExperience"), "All",
+new { @class = "form-control", @id = "ddl_YearsOfExperience" })
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="control-label" style="font-weight: bold;">Keywords</label>
+                            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", @placeholder = "Keywords", @id = "DescriptionIp" } })
+
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-sm-12 text-center">
+                            <input type="submit" value=Search id="BtnSearch" class="BtnSearch" />
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-10 entries">
+                @*<table class="table table-striped custom-table mb-0  dataTable no-footer  dataTables_wrapper dt-bootstrap4 no-footer " id="DataTables_Table_0" searching="true" role="grid" aria-describedby="DataTables_Table_0_info">
+                    <tr>
+                        <td>*@
+                <table id="table" class="display" style="border: none;">
+                    <thead>
+                        <tr >
+                            <th style="border: none;padding:0px;"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="CardsDiv" class="entries">
+                     
+                    </tbody>
+                </table>
+              
+
+                </div><!-- End blog entries list -->
+
+            </div>
+
+        </div>
+    </section><!-- End Blog Section -->
+    @*}*@
+@section scripts{
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+<script src="~/js/Vacancies.js" ></script>   
+}
